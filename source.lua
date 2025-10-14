@@ -5729,7 +5729,7 @@ function Compkiller.new(Config : Window)
 		Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Frame.BorderSizePixel = 0
 		Frame.Position = UDim2.new(0.5, 0, 1, 0)
-		Frame.Size = UDim2.new(1, 0, 0, 20) 
+		Frame.Size = UDim2.new(0, 0, 0, 0) 
 
 		table.insert(Compkiller.Elements.Highlight,{
 			Element = Frame,

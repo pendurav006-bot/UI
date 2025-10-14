@@ -336,7 +336,7 @@ local Compkiller = {
 	Scale = {
 		Window = UDim2.new(0, 456,0, 499),
 		Mobile = UDim2.new(0, 450,0, 375),
-		TabOpen = 185,
+		TabOpen = 200, --185
 		TabClose = 85,
 	},
 	ArcylicParent = CurrentCamera,
@@ -2358,7 +2358,7 @@ end;
 
 function Compkiller:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Color3) -> any?)
 	local Window = Compkiller:_GetWindowFromElement(Button);
-	local BaseZ_Index = math.random(1,15) * 150;
+	local BaseZ_Index = math.random(1,15) * 100;
 
 	local ColorPickerWindow = Instance.new("Frame")
 	local UIStroke = Instance.new("UIStroke")

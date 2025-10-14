@@ -1480,9 +1480,11 @@ function Compkiller:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 	DepthOfField.NearIntensity = 1;
 	DepthOfField.Name = Compkiller:_RandomString();
 
+	
 	Part.Name = Compkiller:_RandomString();
 
 	local UpdateFunction = function()
+
 		local IsWindowActive = WindowRemote:GetValue();
 
 		if IsWindowActive then
@@ -2356,7 +2358,7 @@ end;
 
 function Compkiller:_AddColorPickerPanel(Button: ImageButton , Callback: (Color: Color3) -> any?)
 	local Window = Compkiller:_GetWindowFromElement(Button);
-	local BaseZ_Index = math.random(1,15) * 100;
+	local BaseZ_Index = math.random(1,15) * 150;
 
 	local ColorPickerWindow = Instance.new("Frame")
 	local UIStroke = Instance.new("UIStroke")

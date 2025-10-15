@@ -1792,13 +1792,12 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 				})
 			end;
 		end;
-
 		local Input = Compkiller:_Input(Toggle);
 
 		Compkiller:_Hover(Input , function()
 			if not Default then
 				Compkiller:_Animation(ToggleValue,rep.Tween,{
-					Size = UDim2.new(0.60, 0, 0.60, 0) --60NIGGA
+					Size = UDim2.new(0.6, 0, 0.6, 0) wait
 				})
 			end;
 		end , function()
@@ -8616,7 +8615,7 @@ function Compkiller.new(Config : Window)
 		end;
 	end);
 
-	WindowArgs:Update();
+	--[[ WindowArgs:Update();
 
 	local OldDelayThread;
 	local DurationTime = tick();
@@ -8652,7 +8651,7 @@ function Compkiller.new(Config : Window)
 	end);
 
 	return WindowArgs;
-end;
+end; --]]
 
 function Compkiller:GetDate(Time)
 	Time = Time or tick();

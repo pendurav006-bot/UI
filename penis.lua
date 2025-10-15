@@ -8602,7 +8602,7 @@ function Compkiller.new(Config : Window)
 
 				if vili < 0 or vili > TabButtons.AbsoluteSize.Y then
 					Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.1) , {
-						BackgroundTransparency = 1
+						BackgroundTransparency = 0
 					});
 				else
 					if math.abs(distance) <= 10 then
@@ -8613,7 +8613,7 @@ function Compkiller.new(Config : Window)
 						SelectionFrame.Position = UDim2.new(1,5,0,math.ceil(vili));
 					else
 						Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.15) , {
-							BackgroundTransparency = 1,
+							BackgroundTransparency = 0,
 							Position = UDim2.new(1,5,0,math.ceil(vili))
 						});
 					end;

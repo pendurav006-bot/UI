@@ -1504,7 +1504,7 @@ function Compkiller:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 
 			Compkiller:_Animation(Part,TweenInfo.new(0.1),{
 				Size = Vector3.zero,
-				Transparency = 1.5,
+				Transparency = 0,
 			})
 
 			return false;
@@ -1826,15 +1826,15 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 				ToggleElement(false,true);
 
 				Compkiller:_Animation(ToggleValue,rep.Tween,{
-					BackgroundTransparency = 1
+					BackgroundTransparency = 0
 				})
 
 				Compkiller:_Animation(Toggle,rep.Tween,{
-					BackgroundTransparency = 1
+					BackgroundTransparency = 0
 				})
 
 				Compkiller:_Animation(UIStroke,rep.Tween,{
-					Transparency = 1
+					Transparency = 0
 				})
 			end;
 		end;
@@ -1899,11 +1899,11 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 				})
 			else
 				Compkiller:_Animation(ColorFrame,TweenInfo.new(0.15),{
-					BackgroundTransparency = 1,
+					BackgroundTransparency = 0,
 				})
 
 				Compkiller:_Animation(UIStroke,TweenInfo.new(0.15),{
-					Transparency = 1,
+					Transparency = 0,
 				})
 			end;
 		end)
@@ -2036,7 +2036,7 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 		local ToggleUI = function(bool)
 			if bool then
 				Compkiller:_Animation(Keybind,rep.Tween,{
-					BackgroundTransparency = 0.8
+					BackgroundTransparency = 0
 				})
 
 				Compkiller:_Animation(UIStroke,rep.Tween,{
@@ -2044,15 +2044,15 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 				})
 
 				Compkiller:_Animation(TextLabel,rep.Tween,{
-					TextTransparency = 0.200
+					TextTransparency = 0
 				})
 			else
 				Compkiller:_Animation(Keybind,rep.Tween,{
-					BackgroundTransparency = 1
+					BackgroundTransparency = 0
 				})
 
 				Compkiller:_Animation(UIStroke,rep.Tween,{
-					Transparency = 1
+					Transparency = 0 --NIGGEER
 				})
 
 				Compkiller:_Animation(TextLabel,rep.Tween,{

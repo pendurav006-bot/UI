@@ -5108,7 +5108,7 @@ function Compkiller:SetTheme(name)
 			["Toggle"] = Color3.new(0, 0.613793, 0.220119),
 			HighStrokeColor = Color3.new(0, 0.241379, 0.186445),
 		};
-	elseif name == "Default" then
+	elseif name == "Default" then --DEFAULT THEME
 		Compkiller.Colors = {
 			Highlight = Color3.fromRGB(17, 238, 253),
 			Toggle = Color3.fromRGB(14, 203, 213),
@@ -5116,7 +5116,7 @@ function Compkiller:SetTheme(name)
 			BGDBColor = Color3.fromRGB(22, 24, 29),
 			BlockColor = Color3.fromRGB(28, 29, 34),
 			StrokeColor = Color3.fromRGB(37, 38, 43),
-			SwitchColor = Color3.fromRGB(255, 255, 255),
+			SwitchColor = Color3.fromRGB(192, 192, 192),
 			DropColor = Color3.fromRGB(33, 35, 39),
 			MouseEnter = Color3.fromRGB(55, 58, 65),
 			BlockBackground = Color3.fromRGB(39, 40, 47),

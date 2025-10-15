@@ -6086,7 +6086,7 @@ function Compkiller.new(Config : Window)
 			Highlight.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Highlight.BorderSizePixel = 0
 			Highlight.Position = UDim2.new(0, 3, 0.5, 0)
-			Highlight.Size = UDim2.new(0, 5, 0, 10)
+			Highlight.Size = UDim2.new(0, 0, 0, 0) -- JACKSON
 			Highlight.ZIndex = 11
 
 			table.insert(Compkiller.Elements.Highlight,{

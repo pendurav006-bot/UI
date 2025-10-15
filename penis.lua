@@ -6831,21 +6831,21 @@ function Compkiller.new(Config : Window)
 		Compkiller:_Hover(TabButton,function()
 			if WindowArgs.SelectedTab ~= TabButton then
 				Compkiller:_Animation(Icon,Tween,{
-					ImageTransparency = 0.1
+					ImageTransparency = 0 -- SUPERNIGGA 2 
 				});
 
 				Compkiller:_Animation(TabNameLabel,Tween,{
-					TextTransparency = 0.1
+					TextTransparency = 0
 				});
 			end;
 		end , function()
 			if WindowArgs.SelectedTab ~= TabButton then
 				Compkiller:_Animation(Icon,Tween,{
-					ImageTransparency = 0.5
+					ImageTransparency = 0
 				});
 
 				Compkiller:_Animation(TabNameLabel,Tween,{
-					TextTransparency = 0.5
+					TextTransparency = 0
 				});
 			end;
 		end)
@@ -7766,21 +7766,21 @@ function Compkiller.new(Config : Window)
 			Compkiller:_Hover(TabButton,function()
 				if WindowArgs.SelectedTab ~= TabButton then
 					Compkiller:_Animation(Icon,Tween,{
-						ImageTransparency = 0.1
+						ImageTransparency = 0 -- SUPERNIGGA 3
 					});
 
 					Compkiller:_Animation(TabNameLabel,Tween,{
-						TextTransparency = 0.1
+						TextTransparency = 0
 					});
 				end;
 			end , function()
 				if WindowArgs.SelectedTab ~= TabButton then
 					Compkiller:_Animation(Icon,Tween,{
-						ImageTransparency = 0.5
+						ImageTransparency = 0
 					});
 
 					Compkiller:_Animation(TabNameLabel,Tween,{
-						TextTransparency = 0.5
+						TextTransparency = 0
 					});
 				end;
 			end)

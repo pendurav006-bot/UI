@@ -6329,7 +6329,7 @@ function Compkiller.new(Config : Window)
 		Highlight.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Highlight.BorderSizePixel = 0
 		Highlight.Position = UDim2.new(0.5, 0, 0.5, 0)
-		Highlight.Size = UDim2.new(1, -17, 1, 0)
+		Highlight.Size = UDim2.new(0, 0, 0, 0)
 		Highlight.ZIndex = 2
 
 		UICorner.CornerRadius = UDim.new(0, 4)

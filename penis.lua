@@ -8587,7 +8587,7 @@ function Compkiller.new(Config : Window)
 
 		table.insert(Compkiller.Elements.Highlight,{
 			Element = SelectionFrame,
-			Property = "BackgroundColor3"
+			Property = "" -- BackroundColor3
 		});
 
 		while true do task.wait(0.01);
@@ -8607,7 +8607,7 @@ function Compkiller.new(Config : Window)
 				else
 					if math.abs(distance) <= 10 then
 						Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.1) , {
-							BackgroundTransparency = 1
+							BackgroundTransparency = 0
 						});
 
 						SelectionFrame.Position = UDim2.new(1,5,0,math.ceil(vili));

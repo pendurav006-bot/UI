@@ -8607,7 +8607,7 @@ function Compkiller.new(Config : Window)
 				else
 					if math.abs(distance) <= 10 then
 						Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.1) , {
-							BackgroundTransparency = 1
+							BackgroundTransparency = 0
 						});
 
 						SelectionFrame.Position = UDim2.new(1,5,0,math.ceil(vili));

@@ -336,7 +336,7 @@ local Compkiller = {
 	Scale = {
 		Window = UDim2.new(0, 770,0, 499), -- size
 		Mobile = UDim2.new(0, 450,0, 375),
-		TabOpen = 500, --185
+		TabOpen = 85, --185
 		TabClose = 85,
 	},
 	ArcylicParent = CurrentCamera,

@@ -1798,7 +1798,7 @@ function Compkiller:_AddLinkValue(Name , Default , GlobalBlock , LinkValues , re
 		Compkiller:_Hover(Input , function()
 			if not Default then
 				Compkiller:_Animation(ToggleValue,rep.Tween,{
-					Size = UDim2.new(0.6, 0, 0.6, 0)
+					Size = UDim2.new(0.60, 0, 0.60, 0) --60NIGGA
 				})
 			end;
 		end , function()
@@ -6850,7 +6850,7 @@ function Compkiller.new(Config : Window)
 			end;
 		end)
 
-		TabOpenSignal:Connect(TabOpen);
+		 TabOpenSignal:Connect(TabOpen); --NIGGA2
 
 		TabHover:Connect(function(bool)
 			if bool then
@@ -8521,7 +8521,7 @@ function Compkiller.new(Config : Window)
 		config = config or {};
 		config.Logo = config.Logo or Config.Logo;
 		config.Username = config.Username or LocalPlayer.DisplayName;
-		config.ExpireDate = config.ExpireDate or "NEVER";
+		config.ExpireDate = config.ExpireDate or "";
 		config.WindowName = config.WindowName or Config.Name;
 		config.UserProfile = config.UserProfile or WindowArgs.Profile or string.format("rbxthumb://type=AvatarHeadShot&id=%s&w=150&h=150",tostring(LocalPlayer.UserId));
 
@@ -8644,7 +8644,7 @@ function Compkiller.new(Config : Window)
 			return;
 		end;
 
-		OldDelayThread = task.delay(math.clamp((tick() - DurationTime) , 0.01,5),function()
+		OldDelayThread = task.delay(math.clamp((tick() - DurationTime) , 0.01,5),function() --MAYBE
 			if TabHover:GetValue() then
 				TabHover:Fire(false);
 			end

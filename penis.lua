@@ -8620,7 +8620,7 @@ function Compkiller.new(Config : Window)
 				end;
 			else
 				Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.15) , {
-					BackgroundTransparency = 1
+					BackgroundTransparency = 0
 				});
 			end;
 

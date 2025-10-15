@@ -336,7 +336,7 @@ local Compkiller = {
 	Scale = {
 		Window = UDim2.new(0, 770,0, 499), -- size
 		Mobile = UDim2.new(0, 450,0, 375),
-		TabOpen = 85, --185
+		TabOpen = 85, 
 		TabClose = 85,
 	},
 	ArcylicParent = CurrentCamera,
@@ -5382,7 +5382,7 @@ function Compkiller.new(Config : Window)
 	TabFrame.BorderSizePixel = 0
 	TabFrame.ClipsDescendants = true
 	TabFrame.Position = UDim2.new(0, 25, 0, 0)
-	TabFrame.Size = UDim2.new(0, 85, 1, 0)
+	TabFrame.Size = UDim2.new(0, 500, 1, 0) -- lua TabFrame.Size = UDim2.new(0, 85, 1, 0)
 
 	UICorner_2.Parent = TabFrame
 
@@ -5741,7 +5741,7 @@ function Compkiller.new(Config : Window)
 
 		local Tween = TweenInfo.new(0.35,Enum.EasingStyle.Quint);
 
-		TabHover:Connect(function(bool)
+		TabHover:Connect(function(bool) --TabNigga
 			if bool then
 				Compkiller:_Animation(CategoryText,Tween,{
 					TextTransparency = 0.500
@@ -6818,7 +6818,7 @@ function Compkiller.new(Config : Window)
 
 		if not WindowArgs.Tabs[1] then
 			TabOpenSignal:Fire(true);
-			TabOpen(true);
+			TabOpen(false); --NIGGA
 		else
 			TabOpen(false);
 		end;

@@ -6428,7 +6428,7 @@ function Compkiller.new(Config : Window)
 			Property = 'TextColor3'
 		});
 
-		SectionClose.Name = Compkiller:_RandomString()
+		SectionClose.Name = Compkiller:_RandomString()  --ICON
 		SectionClose.Parent = Header
 		SectionClose.AnchorPoint = Vector2.new(1, 0.5)
 		SectionClose.BackgroundTransparency = 1.000
@@ -8611,7 +8611,7 @@ function Compkiller.new(Config : Window)
 			end;
 
 			if WindowArgs.AlwayShowTab then
-				TabHover:Fire(true);
+				TabHover:Fire(false);
 			end;
 		end;
 	end);

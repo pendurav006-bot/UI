@@ -1,4 +1,4 @@
---[[
+ --[[
     		Compkiller Interface
 
     Author: 4lpaca
@@ -5285,7 +5285,7 @@ function Compkiller.new(Config : Window)
 		Tabs = {},
 		LastTab = nil,
 		IsOpen = true,
-		AlwayShowTab = true,
+		AlwayShowTab = false,
 		THREADS = {},
 		PerformanceMode = false,
 		Notify = Compkiller.newNotify()
@@ -5294,7 +5294,7 @@ function Compkiller.new(Config : Window)
 	WindowArgs.Username = LocalPlayer.Name;
 
 	if Compkiller:_IsMobile() then
-		WindowArgs.AlwayShowTab = true;
+		WindowArgs.AlwayShowTab = false;
 	end;
 
 	local CompKiller = Instance.new("ScreenGui")

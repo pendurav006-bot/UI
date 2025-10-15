@@ -8591,8 +8591,8 @@ function Compkiller.new(Config : Window)
 		});
 
 		while true do task.wait(0.01);
-			BlurElement.Size = UDim2.new(1, TabFrame.AbsoluteSize.X - 35, 1, 0);
-			MovementFrame.Size = UDim2.new(1, TabFrame.AbsoluteSize.X - 35, 1, 0);
+			BlurElement.Size = UDim2.new(1, TabFrame.AbsoluteSize.X - 0, 0, 0);
+			MovementFrame.Size = UDim2.new(1, TabFrame.AbsoluteSize.X - 0, 0, 0);
 
 			SelectionFrame.BackgroundColor3 = Compkiller.Colors.Highlight;
 

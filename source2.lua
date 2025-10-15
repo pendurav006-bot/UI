@@ -1432,8 +1432,8 @@ function Compkiller:_Input(Frame : Frame , Callback : () -> ()) : TextButton
 
 	Button.ZIndex = Frame.ZIndex + 10;
 	Button.Size = UDim2.fromScale(1,1);
-	Button.BackgroundTransparency = 1;
-	Button.TextTransparency = 1;
+	Button.BackgroundTransparency = 0;
+	Button.TextTransparency = 0;
 
 	if Callback then
 		Button.MouseButton1Click:Connect(Callback);
@@ -1463,8 +1463,8 @@ function Compkiller:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 	BlockMesh.Parent = Part;
 
 	Part.Material = Enum.Material.Glass;
-	Part.Transparency = 1;
-	Part.Reflectance = 1;
+	Part.Transparency = 0;
+	Part.Reflectance = 0;
 	Part.CastShadow = false;
 	Part.Anchored = true;
 	Part.CanCollide = false;
@@ -1494,7 +1494,7 @@ function Compkiller:_Blur(element : Frame , WindowRemote) : RBXScriptSignal
 			})
 
 			Compkiller:_Animation(Part,TweenInfo.new(0.1),{
-				Transparency = 0.97,
+				Transparency = 0, --NIGGA
 				Size = Vector3.new(1, 1, 1) * 0.01;
 			})
 		else

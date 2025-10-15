@@ -5443,7 +5443,7 @@ function Compkiller.new(Config : Window)
 	SelectionFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	SelectionFrame.BorderSizePixel = 0
 	SelectionFrame.Position = UDim2.new(1, 5, 0, 28)
-	SelectionFrame.Size = UDim2.new(0, 8, 0, 32)
+	SelectionFrame.Size = UDim2.new(0, 0, 0, 0)
 
 	table.insert(Compkiller.Elements.Highlight,{
 		Element = SelectionFrame,

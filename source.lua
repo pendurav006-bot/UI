@@ -330,11 +330,11 @@ local Mouse: Mouse = LocalPlayer:GetMouse();
 local CurrentCamera: Camera? = workspace.CurrentCamera;
 
 local Compkiller = {
-	Version = 'Beta v1.0',
+	Version = 'Beta v1.1',
 	Logo = "rbxassetid://120245531583106",
 	Windows = {},
 	Scale = {
-		Window = UDim2.new(0, 900,0, 499), -- size
+		Window = UDim2.new(0, 770,0, 499), -- size
 		Mobile = UDim2.new(0, 450,0, 375),
 		TabOpen = 500, --185
 		TabClose = 85,

@@ -8615,6 +8615,12 @@ function Compkiller.new(Config : Window)
 		end;
 	end);
 
+
+
+
+    WindowArgs:Update();
+    return WindowArgs;
+end;
 	--[[ WindowArgs:Update();
 
 	local OldDelayThread;

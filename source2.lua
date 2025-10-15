@@ -7529,8 +7529,8 @@ function Compkiller.new(Config : Window)
 			local Tween = TweenInfo.new(0.35,Enum.EasingStyle.Quint);
 
 			Internal.Highlight:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
-				if Internal.Highlight.BackgroundTransparency <= 0.99 then
-					TabContent.Visible = true;
+				if Internal.Highlight.BackgroundTransparency <= 0 then
+					TabContent.Visible = false;
 				else
 					TabContent.Visible = false;
 				end;

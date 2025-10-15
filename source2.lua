@@ -8618,38 +8618,6 @@ function Compkiller.new(Config : Window)
 
 	WindowArgs:Update();
 
-	local OldDelayThread;
-	local DurationTime = tick();
-
-	Compkiller:_Hover(TabFrame , function()
-		if OldDelayThread then
-			task.cancel(OldDelayThread);
-			OldDelayThread = nil;
-		end;
-
-		if WindowArgs.AlwayShowTab then
-			return;
-		end;
-
-		DurationTime = tick();
-
-		TabHover:Fire(true);
-	end , function()
-		if OldDelayThread then
-			task.cancel(OldDelayThread);
-			OldDelayThread = nil;
-		end;
-
-		if WindowArgs.AlwayShowTab then
-			return;
-		end;
-
-		OldDelayThread = task.delay(math.clamp((tick() - DurationTime) , 0.01,5),function()
-			if TabHover:GetValue() then
-				TabHover:Fire(false);
-			end
-		end);
-	end);
 
 	return WindowArgs;
 end;

@@ -8602,7 +8602,7 @@ function Compkiller.new(Config : Window)
 
 				if vili < 0 or vili > TabButtons.AbsoluteSize.Y then
 					Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.1) , {
-						BackgroundTransparency = !
+						BackgroundTransparency = 1
 					});
 				else
 					if math.abs(distance) <= 10 then

@@ -5790,7 +5790,7 @@ function Compkiller.new(Config : Window)
 		TabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TabButton.BorderSizePixel = 0
 		TabButton.ClipsDescendants = true
-		TabButton.Size = UDim2.new(1, -10, 0, 32)
+		TabButton.Size = UDim2.new(0, 0, 0, 0)
 		TabButton.ZIndex = 3
 
 		if Compkiller:_IsMobile() then

@@ -332,13 +332,13 @@ local Mouse: Mouse = LocalPlayer:GetMouse();
 local CurrentCamera: Camera? = workspace.CurrentCamera;
 
 local Compkiller = {
-	Version = '2.1',
-	Logo = "rbxassetid://120245531583106",
+	Version = 'v1.2',
+	Logo = "rbxassetid://94883947732888",
 	Windows = {},
 	Scale = {
-		Window = UDim2.new(0, 456,0, 499),
+		Window = UDim2.new(0, 770,0, 499), -- size
 		Mobile = UDim2.new(0, 450,0, 375),
-		TabOpen = 185,
+		TabOpen = 500, --185
 		TabClose = 85,
 	},
 	ArcylicParent = CurrentCamera,
@@ -346,9 +346,9 @@ local Compkiller = {
 };
 
 Compkiller.Colors = {
-	Highlight = Color3.fromRGB(17, 238, 253),
-	Toggle = Color3.fromRGB(14, 203, 213),
-	Risky = Color3.fromRGB(251, 255, 39),
+	Highlight = Color3.fromRGB(223, 223, 223),
+	Toggle = Color3.fromRGB(47, 48, 54), -- DADDY
+	Risky = Color3.fromRGB(255, 0, 0),
 	BGDBColor = Color3.fromRGB(22, 24, 29),
 	BlockColor = Color3.fromRGB(28, 29, 34),
 	StrokeColor = Color3.fromRGB(37, 38, 43),

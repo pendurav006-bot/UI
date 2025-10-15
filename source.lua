@@ -5643,7 +5643,7 @@ function Compkiller.new(Config : Window)
 
 		if value then
 			Compkiller:_Animation(TabFrame , Style , {
-				Size = UDim2.new(1, 0, 0, 60)
+				Size = UDim2.new(0, 185,1, 0)
 			});
 
 			Compkiller:_Animation(WindowLabel , Style , {

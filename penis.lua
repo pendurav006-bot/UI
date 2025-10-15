@@ -5955,21 +5955,21 @@ function Compkiller.new(Config : Window)
 		Compkiller:_Hover(TabButton,function()
 			if WindowArgs.SelectedTab ~= TabButton then
 				Compkiller:_Animation(Icon,Tween,{
-					ImageTransparency = 0.1
+					ImageTransparency = 0 --SUPERNIGGA 0.1, 0.1, 0.5, 0.5
 				});
 
 				Compkiller:_Animation(TabNameLabel,Tween,{
-					TextTransparency = 0.1
+					TextTransparency = 0
 				});
 			end;
 		end , function()
 			if WindowArgs.SelectedTab ~= TabButton then
 				Compkiller:_Animation(Icon,Tween,{
-					ImageTransparency = 0.5
+					ImageTransparency = 0
 				});
 
 				Compkiller:_Animation(TabNameLabel,Tween,{
-					TextTransparency = 0.5
+					TextTransparency = 0
 				});
 			end;
 		end)
@@ -8596,7 +8596,7 @@ function Compkiller.new(Config : Window)
 
 			SelectionFrame.BackgroundColor3 = Compkiller.Colors.Highlight;
 
-			if WindowArgs.SelectedTab and WindowArgs.IsOpen then
+			if WindowArgs.SelectedTab and WindowArgs.IsOpen then --INFO
 				local vili = -(TabButtons.AbsolutePosition.Y - WindowArgs.SelectedTab.AbsolutePosition.Y) + 2;
 				local distance = (SelectionFrame.Position.Y.Offset - vili);
 
@@ -8607,7 +8607,7 @@ function Compkiller.new(Config : Window)
 				else
 					if math.abs(distance) <= 10 then
 						Compkiller:_Animation(SelectionFrame , TweenInfo.new(0.1) , {
-							BackgroundTransparency = 0
+							BackgroundTransparency = 1
 						});
 
 						SelectionFrame.Position = UDim2.new(1,5,0,math.ceil(vili));

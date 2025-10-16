@@ -1530,7 +1530,7 @@
 				local main_window = library:panel({
 					name = properties and properties.name or "Atlanta | ", 
 					size = dim2(0, 604, 0, 628),
-					position = dim2(0, (camera.ViewportSize.X / 2) - 302 - 96, 0, (camera.ViewportSize.Y / 2) - 421 - 12),
+					position = dim2(0.5, -302, 0.5, -314), -- This centers the element
 					image = "rbxassetid://98823308062942",
 				})
 
@@ -1631,7 +1631,7 @@
 					size = dim2(0, 394, 0, 464),
 					position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
 					image = "rbxassetid://115194686863276",
-				})
+				}) 
 
 				local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
 

@@ -662,7 +662,7 @@
 			local items = cfg.items do 
 				-- Panel
 					items.sgui = library:create("ScreenGui", {
-						Enabled = true, --niggi
+						Enabled = true, 
 						Parent = gethui(),
 						Name = "" 
 					})
@@ -691,7 +691,7 @@
 						Text = "X";
 						Size = dim2(0, 0, 0, 0);
 						Selectable = false;
-						Position = dim2(1, -7, 0, 5);
+						Position = dim2(1, -70, 0, 5); --reicht
 						BorderSizePixel = 0;
 						BackgroundTransparency = 1;
 						TextXAlignment = Enum.TextXAlignment.Right;

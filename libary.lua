@@ -662,7 +662,7 @@
 			local items = cfg.items do 
 				-- Panel
 					items.sgui = library:create("ScreenGui", {
-						Enabled = true,
+						Enabled = false, --niggi
 						Parent = gethui(),
 						Name = "" 
 					})
@@ -1805,10 +1805,25 @@
 			--  
 
 			-- playerlist 
+			local holder = library:panel({
+					name = "Playerlist", 
+					anchor_point = vec2(0, 0),
+					size = dim2(0, 529, 0, 445),
+					position = dim2(0, main_window.items.main_holder.AbsolutePosition.X - 531, 0, main_window.items.main_holder.AbsolutePosition.Y),
+					image = "rbxassetid://107070078834415",
+				})  
 				
+				local items = holder.items
+
+				local column = setmetatable(items, library):column() 
+				local section = column:section({name = "Playerlist"})
+				local playerlist = section:playerlist({})
+				section:dropdown({name = "Priority", items = {"Enemy", "Priority", "Neutral", "Friendly"}, default = "Neutral", flag = "PLAYERLIST_DROPDOWN", callback = function(text)
+					library.prioritize(text)
+				end})	
 			return setmetatable(window, library)
 		end
-
+	
 		function library:watermark(options) 
 			local cfg = {
 				default = options.text or options.default or os.date('drain.lol | %b %d %Y | %H:%M')

@@ -1530,7 +1530,7 @@
 				local main_window = library:panel({
 					name = properties and properties.name or "Atlanta | ", 
 					size = dim2(0, 604, 0, 628),
-					position = dim2(0, (camera.ViewportSize.X / 2) - 0 - 96, 0, (camera.ViewportSize.Y / 2) - 421 - 12), --302
+					position = dim2(0, (camera.ViewportSize.X / 2) 500 - 96, 0, (camera.ViewportSize.Y / 2) - 421 - 12), --302
 					image = "rbxassetid://98823308062942",
 				})
 

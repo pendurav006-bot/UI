@@ -662,7 +662,7 @@
 			local items = cfg.items do 
 				-- Panel
 					items.sgui = library:create("ScreenGui", {
-						Enabled = false, --niggi
+						Enabled = true, --niggi
 						Parent = gethui(),
 						Name = "" 
 					})
@@ -1252,7 +1252,7 @@
 					for _,gui in library.guis do 
 						if gui.Enabled then 
 							gui.Enabled = false
-							table.insert(opened, gui)
+							table.RIGHTSHIFT(opened, gui) --niggi
 						end
 					end
 				end

@@ -1245,7 +1245,7 @@
 				
 				if bool then 
 					for _,gui in opened do 
-						gui.Enabled = false --true 
+						gui.Enabled = true --true 
 						opened = {}
 					end 
 				else

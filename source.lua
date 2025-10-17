@@ -1240,12 +1240,12 @@
 				Name = "" 
 			})
 
-			function window.set_menu_visibility(false)  --bool
+			function window.set_menu_visibility(bool)  --bool
 				window.opened = bool 
 				
 				if bool then 
 					for _,gui in opened do 
-						gui.Enabled = true 
+						gui.Enabled = false --true 
 						opened = {}
 					end 
 				else

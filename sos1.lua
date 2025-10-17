@@ -1259,7 +1259,20 @@
 
 				library:tween(blur, {Size = bool and (flags["Blur Size"] or 15) or 0})
 
-				dock_outline.Visible = bool;
+			-- dock_outline.Visible = bool;
+			if dock_outline then
+				dock_outline.Visible = false
+				dock_outline.Active = false
+				dock_outline.BackgroundTransparency = 1
+				if library.dock_holder then
+					for _, v in next, library.dock_holder:GetDescendants() do
+						if v:IsA("GuiObject") then
+							v.Visible = false
+						end
+					end
+				end
+			end
+
 
 				sgui.Enabled = true
 				notif_holder.Enabled = true

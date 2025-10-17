@@ -1527,12 +1527,12 @@
 			--  
 
 			-- main window
-			--	local main_window = library:panel({
-			--		name = properties and properties.name or "Atlanta | ", 
-			--		size = dim2(0, 604, 0, 628),
-			--		position = dim2(0.5, -302, 0.5, -314), -- This centers the element
-			--		image = "rbxassetid://98823308062942",
-			--	})
+				local main_window = library:panel({
+					name = properties and properties.name or "Atlanta | ", 
+					size = dim2(0, 604, 0, 628),
+					position = dim2(0.5, -302, 0.5, -314), -- This centers the element
+					image = "rbxassetid://98823308062942",
+				})
 
 				local items = main_window.items
 

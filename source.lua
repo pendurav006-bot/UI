@@ -1240,7 +1240,7 @@
 				Name = "" 
 			})
 
-			function window.set_menu_visibility(bool) 
+			function window.set_menu_visibility(false)  --bool
 				window.opened = bool 
 				
 				if bool then 

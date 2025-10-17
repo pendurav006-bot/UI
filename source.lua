@@ -644,20 +644,20 @@
 			return cfg
 		end 
 
-		function library:panel(options) 
-			local cfg = {
-				name = options.text or options.name or "Window", 
-				size = options.size or dim2(0, 530, 0, 590),
-				position = options.position or dim2(0, 500, 0, 500),
-				anchor_point = options.anchor_point or vec2(0, 0),
+		--function library:panel(options) 
+		--	local cfg = {
+		--		name = options.text or options.name or "Window", 
+		--		size = options.size or dim2(0, 530, 0, 590),
+		--		position = options.position or dim2(0, 500, 0, 500),
+		--		anchor_point = options.anchor_point or vec2(0, 0),
 
 				-- button
-				image = options.image or "rbxassetid://79856374238119",
-				open = options.open or true,
+		--		image = options.image or "rbxassetid://79856374238119",
+			--	open = options.open or true,
 
 				-- ignore
-				items = {},
-			}
+		--		items = {},
+		--	}
 			
 			local items = cfg.items do 
 				-- Panel

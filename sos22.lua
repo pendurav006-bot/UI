@@ -1228,12 +1228,11 @@
 			local window = {opened = true}            
 			local opened = {}
 			local dock_outline;
-			local blur = library:create( "BlurEffect" , {
-				Parent = lighting;
-				Enabled = true;
-				Size = 15
-			});    
-
+			local blur = Instance.new("BlurEffect")
+			blur.Parent = lighting
+			blur.Enabled = true
+			blur.Size = 15
+   
 			library.cache = library:create("ScreenGui", {
 				Enabled = false,
 				Parent = gethui(),

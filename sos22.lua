@@ -1225,7 +1225,34 @@
 		end     
 
 		function library:window(properties)
-			local window = {opened = true}            
+	        function library:window(properties)
+            function library:window(properties)
+			-- new
+			if properties and properties.name and tostring(properties.name):lower():find("style") then
+				warn("[Library] Default style window has been disabled.")
+				return {
+					tab = function()
+						return {
+							column = function()
+								return {
+									section = function()
+										return {
+											label = function() return {} end,
+											colorpicker = function() return {} end,
+											slider = function() return {} end,
+											toggle = function() return {} end,
+											dropdown = function() return {} end,
+											button = function() return {} end,
+											keybind = function() return {} end
+										}
+									end
+								}
+							end
+						}
+					end
+				}
+			end
+			local window = {opened = true}
 			local opened = {}
 			local dock_outline;
 			local blur = Instance.new("BlurEffect")

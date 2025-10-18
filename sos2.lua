@@ -1640,25 +1640,16 @@
 			-- theming 
 			   local style = library:panel({
 				name = "Style", 
-				anchor_point = vec2(0, 0),
 				size = dim2(0, 394, 0, 464),
-				position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
+				position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 6, 0, main_window.items.main_holder.AbsolutePosition.Y),
 				image = "rbxassetid://115194686863276",
 			})
 
-			local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
+			local style_items = style.items
+			local style_column = setmetatable(style_items, library):column()
+			local style_section = style_column:section({name = "Theme"})
 
-			task.spawn(function()
-				while task.wait(1) do 
-					watermark.change_text(os.date('Atlanta - Beta - %b %d %Y - %H:%M:%S'))
-				end 
-			end)
-
-			local items = style.items
-			local column = setmetatable(items, library):column()
-			local section = column:section({name = "Theme"})
-
-			section:label({name = "Accent"})
+			style_section:label({name = "Accent"})
 			:colorpicker({
 				name = "Accent",
 				color = themes.preset.accent,
@@ -1668,7 +1659,7 @@
 				end
 			})
 
-			section:label({name = "Contrast"})
+			style_section:label({name = "Contrast"})
 			:colorpicker({
 				name = "Low",
 				color = themes.preset.low_contrast,
@@ -1686,16 +1677,7 @@
 				end
 			})
 
-			section:label({name = "Inline"})
-			:colorpicker({
-				name = "Inline",
-				color = themes.preset.inline,
-				callback = function(color)
-					library:update_theme("inline", color)
-				end
-			})
-
-			section:label({name = "Outline"})
+			style_section:label({name = "Outline"})
 			:colorpicker({
 				name = "Outline",
 				color = themes.preset.outline,
@@ -1704,7 +1686,7 @@
 				end
 			})
 
-			section:label({name = "Text"})
+			style_section:label({name = "Text"})
 			:colorpicker({
 				name = "Text",
 				color = themes.preset.text,
@@ -1720,7 +1702,7 @@
 				end
 			})
 
-			section:label({name = "Glow"})
+			style_section:label({name = "Glow"})
 			:colorpicker({
 				name = "Glow",
 				color = themes.preset.glow,
@@ -1729,7 +1711,7 @@
 				end
 			})
 
-			section:slider({
+			style_section:slider({
 				name = "Blur Size",
 				flag = "Blur Size",
 				min = 0,
@@ -1747,48 +1729,43 @@
 			-- 
 
 			-- cfg holder
-			    local holder = library:panel({
+			    local config_window = library:panel({
 				name = "Configurations", 
 				size = dim2(0, 324, 0, 410),
-				position = dim2(0, items.main_holder.AbsolutePosition.X + items.main_holder.AbsoluteSize.X + 2, 0, items.main_holder.AbsolutePosition.Y),
+				position = dim2(0, style.items.main_holder.AbsolutePosition.X + style.items.main_holder.AbsoluteSize.X + 6, 0, style.items.main_holder.AbsolutePosition.Y),
 				image = "rbxassetid://105199726008012",
 			}) 
 
-			local items = holder.items
+			local config_items = config_window.items
+			local config_column = setmetatable(config_items, library):column()
+			local config_section = config_column:section({name = "Options"})
 
-			getgenv().load_config = function(name)
-				library:load_config(readfile(library.directory .. "/configs/" .. name .. ".cfg"))
-			end
-
-			local column = setmetatable(items, library):column()
-			local section = column:section({name = "Options"})
-
-			config_holder = section:list({flag = "config_name_list"})
-			section:textbox({flag = "config_name_text_box"})
-			section:button_holder({})
-			section:button({
+			config_holder = config_section:list({flag = "config_name_list"})
+			config_section:textbox({flag = "config_name_text_box"})
+			config_section:button_holder({})
+			config_section:button({
 				name = "Create",
 				callback = function()
 					writefile(library.directory .. "/configs/" .. flags["config_name_text_box"] .. ".cfg", library:get_config())
 					library:config_list_update()
 				end
 			})
-			section:button({
+			config_section:button({
 				name = "Delete",
 				callback = function()
 					delfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg")
 					library:config_list_update()
 				end
 			})
-			section:button_holder({})
-			section:button({
+			config_section:button_holder({})
+			config_section:button({
 				name = "Load",
 				callback = function()
 					library:load_config(readfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg"))
 					library:notification({text = "Loaded Config: " .. flags["config_name_list"], time = 3})
 				end
 			})
-			section:button({
+			config_section:button({
 				name = "Save",
 				callback = function()
 					writefile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg", library:get_config())
@@ -1796,44 +1773,20 @@
 					library:notification({text = "Saved Config: " .. flags["config_name_list"], time = 3})
 				end
 			})
-			section:button_holder({})
-			section:button({
+			config_section:button_holder({})
+			config_section:button({
 				name = "Refresh Configs",
 				callback = function()
 					library:config_list_update()
 				end
 			})
-			section:button_holder({})
-			section:button({
+			config_section:button_holder({})
+			config_section:button({
 				name = "Unload Config",
 				callback = function()
 					library:load_config(library.old_config)
 				end
 			})
-			section:button({
-				name = "Unload Menu",
-				callback = function()
-					library:load_config(library.old_config)
-					for _, gui in library.guis do gui:Destroy() end
-					for _, connection in library.connections do connection:Disconnect() end
-					blur:Destroy()
-				end
-			})
-			-- 
-					
-			-- esp preview
-				local holder = library:panel({
-					name = "ESP Preview", 
-					anchor_point = vec2(0, 0),
-					size = dim2(0, 300, 0, 325),
-					position = dim2(0, style.items.main_holder.AbsolutePosition.X, 0, style.items.main_holder.AbsolutePosition.Y + style.items.main_holder.AbsoluteSize.Y + 2),
-					image = "rbxassetid://77684377836328",
-				})  
-				
-				local items = holder.items
-				
-				local column = setmetatable(items, library):column() 
-				window.esp_section = column:section({name = "Main"})
 			--  
 
 			-- playerlist 

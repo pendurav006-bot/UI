@@ -1224,15 +1224,19 @@
 			return setmetatable(cfg, library)
 		end     
 
-		function library:window(properties)
-			local window = {opened = true}            
+					local window = {opened = true}            
 			local opened = {}
 			local dock_outline;
-			local blur = library:create( "BlurEffect" , {
+
+			-- create the blur and attach it to the window object
+			local blur = library:create("BlurEffect", {
 				Parent = lighting;
 				Enabled = true;
-				Size = 15
-			});    
+				Size = 15;
+			})
+
+			-- expose blur so tabs (like the Style tab) can access it
+			window.blur = blur
 
 			library.cache = library:create("ScreenGui", {
 				Enabled = false,
@@ -1244,12 +1248,12 @@
 				window.opened = bool 
 				
 				if bool then 
-					for _,gui in opened do 
+					for _, gui in opened do 
 						gui.Enabled = true 
 						opened = {}
 					end 
 				else
-					for _,gui in library.guis do 
+					for _, gui in library.guis do 
 						if gui.Enabled then 
 							gui.Enabled = false
 							table.insert(opened, gui)
@@ -1257,7 +1261,7 @@
 					end
 				end
 
-				library:tween(blur, {Size = bool and (flags["Blur Size"] or 15) or 0})
+				library:tween(window.blur, {Size = bool and (flags["Blur Size"] or 15) or 0})
 
 			-- dock_outline.Visible = bool;
 			if dock_outline then
@@ -1719,8 +1723,8 @@
 				default = 15,
 				interval = 1,
 				callback = function(int)
-					if window.opened then
-						blur.Size = int
+					if window.opened and window.blur then 
+						window.blur.Size = int
 					end
 				end
 			})

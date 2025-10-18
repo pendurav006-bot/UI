@@ -1232,8 +1232,10 @@
 			blur.Parent = lighting
 			blur.Enabled = true
 			blur.Size = 15
-			
-			window.blur = blur
+
+			-- store globally for style tab access
+			library.blur = blur
+
 
 			library.cache = library:create("ScreenGui", {
 				Enabled = false,
@@ -1702,8 +1704,8 @@
 					library:update_theme("glow", color)
 				end, flag = "Glow"})
 				section:slider({name = "Blur Size", flag = "Blur Size", min = 0, max = 56, default = 15, interval = 1, callback = function(int)
-					if window.opened and window.blur then 
-						window.blur.Size = int
+					if library.blur then
+						library.blur.Size = int
 					end
 				end})
 				local section = column:section({name = "Other"})

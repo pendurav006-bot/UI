@@ -1638,168 +1638,187 @@
 			-- 
 
 			-- theming 
-				local style = library:panel({
-					name = "Style", 
-					anchor_point = vec2(0, 0),
-					size = dim2(0, 394, 0, 464),
-					position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
-					image = "rbxassetid://115194686863276",
-				})
+			   local style = library:panel({
+				name = "Style", 
+				anchor_point = vec2(0, 0),
+				size = dim2(0, 394, 0, 464),
+				position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
+				image = "rbxassetid://115194686863276",
+			})
 
-				local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
+			local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
 
-				task.spawn(function()
-					while task.wait(1) do 
-						watermark.change_text(os.date('Atlanta - Beta - %b %d %Y - %H:%M:%S'))
-					end 
-				end) 
+			task.spawn(function()
+				while task.wait(1) do 
+					watermark.change_text(os.date('Atlanta - Beta - %b %d %Y - %H:%M:%S'))
+				end 
+			end)
 
-				local items = style.items
+			local items = style.items
+			local column = setmetatable(items, library):column()
+			local section = column:section({name = "Theme"})
 
-				local column = setmetatable(items, library):column() 
-				local section = column:section({name = "Theme"})
-				section:label({name = "Accent"})
-				:colorpicker({name = "Accent", color = themes.preset.accent, flag = "accent", callback = function(color, alpha)
+			section:label({name = "Accent"})
+			:colorpicker({
+				name = "Accent",
+				color = themes.preset.accent,
+				flag = "accent",
+				callback = function(color)
 					library:update_theme("accent", color)
-				end, flag = "Accent"})
-				section:label({name = "Contrast"})
-				:colorpicker({name = "Low", color = themes.preset.low_contrast, flag = "low_contrast", callback = function(color)
-					if (flags["high_contrast"] and flags["low_contrast"]) then 
-						library:update_theme("contrast", rgbseq{
-							rgbkey(0, flags["low_contrast"].Color),
-							rgbkey(1, flags["high_contrast"].Color)
-						})
-					end 
+				end
+			})
 
-					library:update_theme("low_contrast", flags["low_contrast"].Color)
-				end})
-				:colorpicker({name = "High", color = themes.preset.high_contrast, flag = "high_contrast", callback = function(color)
-					library:update_theme("contrast", rgbseq{
-						rgbkey(0, flags["low_contrast"].Color),
-						rgbkey(1, flags["high_contrast"].Color)
-					})
+			section:label({name = "Contrast"})
+			:colorpicker({
+				name = "Low",
+				color = themes.preset.low_contrast,
+				flag = "low_contrast",
+				callback = function(color)
+					library:update_theme("low_contrast", color)
+				end
+			})
+			:colorpicker({
+				name = "High",
+				color = themes.preset.high_contrast,
+				flag = "high_contrast",
+				callback = function(color)
+					library:update_theme("high_contrast", color)
+				end
+			})
 
-					library:update_theme("high_contrast", flags["high_contrast"].Color)
-				end})
-				section:label({name = "Inline"})
-				:colorpicker({name = "Inline", color = themes.preset.inline, callback = function(color, alpha)
+			section:label({name = "Inline"})
+			:colorpicker({
+				name = "Inline",
+				color = themes.preset.inline,
+				callback = function(color)
 					library:update_theme("inline", color)
-				end, flag = "Inline"})
-				section:label({name = "Outline"})
-				:colorpicker({name = "Outline", color = themes.preset.outline, callback = function(color, alpha)
+				end
+			})
+
+			section:label({name = "Outline"})
+			:colorpicker({
+				name = "Outline",
+				color = themes.preset.outline,
+				callback = function(color)
 					library:update_theme("outline", color)
-				end, flag = "Outline"})
-				section:label({name = "Text Color"})
-				:colorpicker({name = "Main", color = themes.preset.text, callback = function(color, alpha)
+				end
+			})
+
+			section:label({name = "Text"})
+			:colorpicker({
+				name = "Text",
+				color = themes.preset.text,
+				callback = function(color)
 					library:update_theme("text", color)
-				end, flag = "Main"})
-				:colorpicker({name = "Outline", color = themes.preset.text_outline, callback = function(color, alpha)
+				end
+			})
+			:colorpicker({
+				name = "Text Outline",
+				color = themes.preset.text_outline,
+				callback = function(color)
 					library:update_theme("text_outline", color)
-				end, flag = "Outline"})
-				section:label({name = "Glow"})
-				:colorpicker({name = "Glow", color = themes.preset.glow, callback = function(color, alpha)
+				end
+			})
+
+			section:label({name = "Glow"})
+			:colorpicker({
+				name = "Glow",
+				color = themes.preset.glow,
+				callback = function(color)
 					library:update_theme("glow", color)
-				end, flag = "Glow"})
-				section:slider({name = "Blur Size", flag = "Blur Size", min = 0, max = 56, default = 15, interval = 1, callback = function(int)
-					if window.opened then 
+				end
+			})
+
+			section:slider({
+				name = "Blur Size",
+				flag = "Blur Size",
+				min = 0,
+				max = 56,
+				default = 15,
+				interval = 1,
+				callback = function(int)
+					if window.opened then
 						blur.Size = int
 					end
-				end})
-				local section = column:section({name = "Other"})
-				section:label({name = "UI Bind"})
-				:keybind({callback = window.set_menu_visibility, key = Enum.KeyCode.Insert})
-				section:toggle({name = "Keybind List", flag = "keybind_list", callback = function(bool)
-					library.keybind_list_frame.Visible = bool
-				end})
-				section:toggle({name = "Watermark", flag = "watermark", callback = function(bool)
-					watermark.set_visible(bool)
-				end})
-				section:button_holder({})
-				section:button({name = "Copy JobId", callback = function()
-					setclipboard(game.JobId)
-				end})
-				section:button_holder({})
-				section:button({name = "Copy GameID", callback = function()
-					setclipboard(game.GameId)
-				end})
-				section:button_holder({})
-				section:button({name = "Copy Join Script", callback = function()
-					setclipboard('game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '", game.Players.LocalPlayer)')
-				end})
-				section:button_holder({})
-				section:button({name = "Rejoin", callback = function()
-					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, lp)
-				end})
-				section:button_holder({})
-				section:button({name = "Join New Server", callback = function()
-					local apiRequest = game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
-					local data = apiRequest.data[random(1, #apiRequest.data)]
-						
-					if data.playing <= flags["max_players"] then 
-						game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, data.id)
-					end 
-				end})
-				section:slider({name = "Max Players", flag = "max_players", min = 0, max = 40, default = 15, interval = 1})
+				end
+			})
+			
+			
 			-- 
 
 			-- cfg holder
-				local holder = library:panel({
-					name = "Configurations", 
-					size = dim2(0, 324, 0, 410),
-					position = dim2(0, items.main_holder.AbsolutePosition.X + items.main_holder.AbsoluteSize.X + 2, 0, items.main_holder.AbsolutePosition.Y),
-					image = "rbxassetid://105199726008012",
-				}) 
+			    local holder = library:panel({
+				name = "Configurations", 
+				size = dim2(0, 324, 0, 410),
+				position = dim2(0, items.main_holder.AbsolutePosition.X + items.main_holder.AbsoluteSize.X + 2, 0, items.main_holder.AbsolutePosition.Y),
+				image = "rbxassetid://105199726008012",
+			}) 
 
-				local items = holder.items
+			local items = holder.items
 
-				getgenv().load_config = function(name)
-					library:load_config(readfile(library.directory .. "/configs/" .. name .. ".cfg"))
-				end 
+			getgenv().load_config = function(name)
+				library:load_config(readfile(library.directory .. "/configs/" .. name .. ".cfg"))
+			end
 
-				local column = setmetatable(items, library):column() 
-				local section = column:section({name = "Options"})
-					config_holder = section:list({flag = "config_name_list"})
-					section:textbox({flag = "config_name_text_box"})
-					section:button_holder({})
-					section:button({name = "Create", callback = function()
-						writefile(library.directory .. "/configs/" .. flags["config_name_text_box"] .. ".cfg", library:get_config())
-						library:config_list_update()
-					end})
-					section:button({name = "Delete", callback = function()
-						delfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg")
-						library:config_list_update()
-					end})
-					section:button_holder({})
-					section:button({name = "Load", callback = function()
-						library:load_config(readfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg"))
-						library:notification({text = "Loaded Config: " .. flags["config_name_list"], time = 3})
-					end})
-					section:button({name = "Save", callback = function()
-						writefile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg", library:get_config())
-						library:config_list_update()
-						library:notification({text = "Saved Config: " .. flags["config_name_list"], time = 3})
-					end})
-					section:button_holder({})
-					section:button({name = "Refresh Configs", callback = function()
-						library:config_list_update()
-					end})
-					section:button_holder({})
-					section:button({name = "Unload Config", callback = function()
-						library:load_config(library.old_config)
-					end})
-					section:button({name = "Unload Menu", callback = function()
-						library:load_config(library.old_config)
+			local column = setmetatable(items, library):column()
+			local section = column:section({name = "Options"})
 
-						for _, gui in library.guis do 
-							gui:Destroy() 
-						end 
-
-						for _, connection in library.connections do 
-							connection:Disconnect() 
-						end
-
-						blur:Destroy()
-					end})
+			config_holder = section:list({flag = "config_name_list"})
+			section:textbox({flag = "config_name_text_box"})
+			section:button_holder({})
+			section:button({
+				name = "Create",
+				callback = function()
+					writefile(library.directory .. "/configs/" .. flags["config_name_text_box"] .. ".cfg", library:get_config())
+					library:config_list_update()
+				end
+			})
+			section:button({
+				name = "Delete",
+				callback = function()
+					delfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg")
+					library:config_list_update()
+				end
+			})
+			section:button_holder({})
+			section:button({
+				name = "Load",
+				callback = function()
+					library:load_config(readfile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg"))
+					library:notification({text = "Loaded Config: " .. flags["config_name_list"], time = 3})
+				end
+			})
+			section:button({
+				name = "Save",
+				callback = function()
+					writefile(library.directory .. "/configs/" .. flags["config_name_list"] .. ".cfg", library:get_config())
+					library:config_list_update()
+					library:notification({text = "Saved Config: " .. flags["config_name_list"], time = 3})
+				end
+			})
+			section:button_holder({})
+			section:button({
+				name = "Refresh Configs",
+				callback = function()
+					library:config_list_update()
+				end
+			})
+			section:button_holder({})
+			section:button({
+				name = "Unload Config",
+				callback = function()
+					library:load_config(library.old_config)
+				end
+			})
+			section:button({
+				name = "Unload Menu",
+				callback = function()
+					library:load_config(library.old_config)
+					for _, gui in library.guis do gui:Destroy() end
+					for _, connection in library.connections do connection:Disconnect() end
+					blur:Destroy()
+				end
+			})
 			-- 
 					
 			-- esp preview

@@ -1638,13 +1638,13 @@
 			-- 
 
 			-- theming 
-				local style = library:panel({
-					name = "Style", 
-					anchor_point = vec2(0, 0),
-					size = dim2(0, 394, 0, 464),
-					position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
-					image = "rbxassetid://115194686863276",
-				})
+			--	local style = library:panel({
+			--		name = "Style", 
+			--		anchor_point = vec2(0, 0),
+			--		size = dim2(0, 394, 0, 464),
+			--		position = dim2(0, main_window.items.main_holder.AbsolutePosition.X + main_window.items.main_holder.AbsoluteSize.X + 2, 0, main_window.items.main_holder.AbsolutePosition.Y),
+			--		image = "rbxassetid://115194686863276",
+			--	})
 
 				local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
 
